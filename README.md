@@ -275,7 +275,7 @@ Contributions are what make the open source community such an amazing place to l
 </p>
 
 <p align="center">
-  <b>Built with ❤️ by Subham</b><br>
+  <b>Built with ❤️ by Subham and Raunak</b><br>
   <i>Empowering Campus Management through Intelligent Software</i>
 </p>
 
