@@ -1,287 +1,235 @@
-# SMART CAMPUS INFORMATION SYSTEM
+# Smart Campus Information System
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/render?type=waving&color=gradient&height=280&section=header&text=SMART%20CAMPUS&fontSize=80&animation=fadeIn&fontAlignY=35&desc=Integrated%20Academic%20Management%20%26%20Analytics%20Engine&descAlignY=55&descSize=25" width="100%" />
+  <img src="https://capsule-render.vercel.app/render?type=waving&color=36BCF7&height=200&section=header&text=SMART%20CAMPUS&fontSize=70&animation=fadeIn&fontAlignY=35&desc=Academic%20Record%20Management%20%26%20Data%20Analytics%20Integration&descAlignY=55&descSize=20" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=3000&pause=1000&color=36BCF7&center=true&vCenter=true&width=600&lines=Autonomous+Student+Management;Advanced+Performance+Analytics;Enterprise-Grade+File+Handling;Real-time+Academic+Insights" alt="Typing SVG" /></a>
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3500&pause=1000&color=36BCF7&center=true&vCenter=true&width=600&lines=Student+Record+Management;Data-Driven+Performance+Insights;Modular+Python+Architecture;Academic+Process+Automation" alt="Typing SVG" /></a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/stars/subhamsje/SMART-CAMPUS-INFORMATION-SYSTEM?style=for-the-badge&color=gold" alt="Stars" />
-  <img src="https://img.shields.io/github/forks/subhamsje/SMART-CAMPUS-INFORMATION-SYSTEM?style=for-the-badge&color=blue" alt="Forks" />
-  <img src="https://img.shields.io/github/last-commit/subhamsje/SMART-CAMPUS-INFORMATION-SYSTEM?style=for-the-badge&color=green" alt="Last Commit" />
-  <img src="https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python" alt="Python Version" />
-  <img src="https://komarev.com/ghpvc/?username=subhamsje-scis&color=brightgreen&style=for-the-badge&label=VISITORS" alt="Visitor Counter" />
+  <img src="https://img.shields.io/github/stars/subhamsje/SMART-CAMPUS-INFORMATION-SYSTEM?style=flat-square&color=36BCF7" alt="Stars" />
+  <img src="https://img.shields.io/github/forks/subhamsje/SMART-CAMPUS-INFORMATION-SYSTEM?style=flat-square&color=36BCF7" alt="Forks" />
+  <img src="https://img.shields.io/github/last-commit/subhamsje/SMART-CAMPUS-INFORMATION-SYSTEM?style=flat-square&color=36BCF7" alt="Last Commit" />
+  <img src="https://img.shields.io/badge/Python-3.8%2B-blue?style=flat-square&logo=python" alt="Python Version" />
 </p>
 
 ---
 
-## 🌟 Project Overview
+## 🎥 System Demonstration
 
-The **Smart Campus Information System** is a next-generation academic management platform engineered for efficiency and data-driven decision-making. Built with a robust Python backbone and powered by the modern data science stack, it provides a seamless experience for managing student life-cycles, academic records, and institutional analytics.
-
-### Why Smart Campus?
-- **Efficiency:** Automate grading and fee calculations in seconds.
-- **Insights:** Deep-dive into student performance with NumPy and Pandas.
-- **Persistence:** Secure file-based record management.
-- **Visualization:** High-fidelity graphical representations of academic trends.
+<p align="center">
+  <img src="assets/demo.gif" alt="System Demo" width="800" />
+  <br>
+  <i>Note: Replace this with a recording of your terminal session using tools like 'Terminalizer' or 'ScreenToGif'.</i>
+</p>
 
 ---
 
-## 🏗 System Architecture
+## 📖 Project Overview
+
+The **Smart Campus Information System** is a command-line utility designed to streamline academic administrative tasks and provide quantitative insights into student performance. This project serves as a practical implementation of modular programming, persistent file storage, and data analysis using the Python ecosystem.
+
+### Key Functionalities:
+- **Record Management:** CRUD operations for student profiles and course enrollments.
+- **Academic Evaluation:** Automated grade calculation based on subject averages.
+- **Data Analytics:** Statistical analysis of class performance using NumPy and Pandas.
+- **Visualization:** Generation of performance distribution graphs via Matplotlib.
+- **System Utilities:** Automated directory scanning and persistent text-based storage.
+
+---
+
+## 🏗 Engineering Architecture
+
+This system follows a modular layered architecture, ensuring separation of concerns between user interaction, business logic, and data persistence.
 
 ```mermaid
 graph TD
-    subgraph Client_Layer [User Interface]
-        UI[Main Dashboard]
+    subgraph UI_Layer [User Interface]
+        Main[CLI Dashboard / main.py]
     end
 
-    subgraph Logic_Layer [Core Engine]
-        UI --> Reg[Student Registration]
-        UI --> Enr[Course Enrollment]
-        UI --> Eval[Grade Evaluation]
-        UI --> Fee[Fee Management]
-        UI --> Scan[Directory Scanner]
+    subgraph Service_Layer [Business Logic]
+        Reg[Registration Module]
+        Enroll[Course Module]
+        Fin[Fee Management]
+        FileSys[File System Handler]
     end
 
-    subgraph Data_Science_Stack [Analytics Engine]
-        Reg --> NP[NumPy Logic]
-        Eval --> PD[Pandas Analytics]
-        PD --> PLT[Matplotlib Visualization]
+    subgraph Analytics_Layer [Data Engine]
+        NP[NumPy Statistical Ops]
+        PD[Pandas Data Manipulation]
+        PLT[Matplotlib Visualization]
     end
 
-    subgraph Persistence_Layer [Storage Management]
-        UI --> FS[File System Handler]
-        FS --> TXT[(student_records.txt)]
+    subgraph Data_Layer [Persistence]
+        Store[(student_records.txt)]
     end
 
-    style Client_Layer fill:#f9f,stroke:#333,stroke-width:2px
-    style Logic_Layer fill:#bbf,stroke:#333,stroke-width:2px
-    style Data_Science_Stack fill:#bfb,stroke:#333,stroke-width:2px
-    style Persistence_Layer fill:#fbb,stroke:#333,stroke-width:2px
+    Main --> Service_Layer
+    Service_Layer --> Analytics_Layer
+    Service_Layer --> Data_Layer
+    Analytics_Layer --> UI_Layer
+
+    style UI_Layer fill:#e1f5fe,stroke:#01579b
+    style Service_Layer fill:#fff3e0,stroke:#e65100
+    style Analytics_Layer fill:#f1f8e9,stroke:#33691e
+    style Data_Layer fill:#ede7f6,stroke:#311b92
 ```
 
 ---
 
-## 🔄 Dynamic Workflow
+## 📊 Data Flow Diagram
+
+The diagram below illustrates the lifecycle of student data from initial input to final analytical output.
 
 ```mermaid
-flowchart TD
-    Start((● Start)) --> Dash{Dashboard}
-    
-    Dash -->|Register| Reg[Register Student]
-    Reg --> Grade[Grade Evaluation]
-    Grade --> Enroll[Course Enrollment]
-    
-    Dash -->|Records| Rec[Academic Records]
-    Rec --> Search[Search / Sort]
-    
-    Dash -->|Finance| Fee[Fee Calculation]
-    
-    Dash -->|System| File[File Management]
-    File --> Scan[Directory Scanner]
-    
-    Dash -->|Data| Analytics[Performance Analytics]
-    Analytics --> Viz[Matplotlib Visualization]
-    
-    Viz --> Dash
-    Search --> Dash
-    Fee --> Dash
-    Enroll --> Dash
-    
-    Dash -->|Exit| End((● Exit))
+flowchart LR
+    In[[User Input]] --> Val{Validation}
+    Val -->|Valid| Proc[Process Logic]
+    Proc --> Persist[(Disk Storage)]
+    Proc --> Stats[Compute Statistics]
+    Stats --> DF[Pandas DataFrame]
+    DF --> Plot[Generate Chart]
+    Plot --> Disp((CLI / Plot Display))
 
-    style Start fill:#4CAF50,stroke:#fff
-    style End fill:#F44336,stroke:#fff
-    style Dash fill:#2196F3,stroke:#fff,color:#fff
-    style Analytics fill:#FF9800,stroke:#fff
-    style Viz fill:#9C27B0,stroke:#fff
+    style In fill:#f5f5f5
+    style Disp fill:#f5f5f5
+    style Val fill:#fff9c4
 ```
 
 ---
 
-## 🧪 Interactive System Workflow
+## 🖼 Program Evidence
 
-```mermaid
-sequenceDiagram
-    participant User
-    participant Dashboard
-    participant Processor
-    participant DataStorage
-    participant AnalyticsEngine
+### Actual Application Interface
 
-    User->>Dashboard: Select Action (e.g., Register)
-    Dashboard->>Processor: Validate Input Data
-    Processor->>DataStorage: Save Record to File
-    DataStorage-->>Processor: Confirmation
-    Processor->>AnalyticsEngine: Trigger Recalculation
-    AnalyticsEngine-->>Dashboard: Return New Performance Metrics
-    Dashboard->>User: Display Success & Grade
+<p align="center">
+  <img src="assets/dashboard.png" alt="Dashboard Screenshot" width="400" />
+  <img src="assets/registration.png" alt="Registration Screenshot" width="400" />
+</p>
+
+### Sample Analytics Output
+
+#### 🔹 NumPy Statistical Summary
+```text
+===== ANALYTICS =====
+Highest Average : 94.5
+Lowest Average  : 62.0
+Class Average   : 78.25
 ```
 
----
+#### 🔹 Pandas Data representation
+| USN | Name | Average | Grade |
+| :--- | :--- | :--- | :--- |
+| 1DS22CS001 | Alice Johnson | 94.5 | A+ |
+| 1DS22CS002 | Bob Smith | 72.0 | B |
 
-## 🚀 Feature Showcase
-
-<table width="100%">
-  <tr>
-    <td width="50%">
-      <h3>🎓 Student Registration</h3>
-      <p>Automated USN and profile creation with real-time grade evaluation algorithms.</p>
-      <b>Tech:</b> Python Core, Conditionals
-    </td>
-    <td width="50%">
-      <h3>📚 Course Enrollment</h3>
-      <p>Dynamic course mapping system allowing students to enroll in specialized academic tracks.</p>
-      <b>Tech:</b> Dictionary Mapping
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3>🔎 Search & Sort</h3>
-      <p>High-speed lookup and ranking system based on academic performance averages.</p>
-      <b>Tech:</b> Lambda Functions, Sorting Algos
-    </td>
-    <td width="50%">
-      <h3>💰 Fee Calculation</h3>
-      <p>Integrated financial module for calculating tuition, lab, and examination expenses.</p>
-      <b>Tech:</b> Arithmetic Engines
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3>📊 Analytics</h3>
-      <p>Leveraging NumPy for class averages and Pandas for structured data manipulation.</p>
-      <b>Tech:</b> NumPy, Pandas
-    </td>
-    <td width="50%">
-      <h3>📈 Visualization</h3>
-      <p>Generating publication-quality bar charts to visualize student performance distribution.</p>
-      <b>Tech:</b> Matplotlib
-    </td>
-  </tr>
-</table>
-
----
-
-## 🖼 Dashboard Preview
-
+#### 🔹 Matplotlib Visualization
 <p align="center">
-  <img src="https://via.placeholder.com/800x400/2196F3/FFFFFF?text=Dashboard+Interface+Preview" alt="Dashboard" style="border-radius: 10px; border: 2px solid #333;" />
-  <br>
-  <i>Main Interface: Intuitive Command-Line Dashboard</i>
-</p>
-
-<p align="center">
-  <img src="https://via.placeholder.com/400x300/4CAF50/FFFFFF?text=Analytics+Graph" alt="Analytics" style="border-radius: 10px; border: 2px solid #333;" />
-  <img src="https://via.placeholder.com/400x300/9C27B0/FFFFFF?text=Performance+Report" alt="Performance" style="border-radius: 10px; border: 2px solid #333;" />
-  <br>
-  <i>Real-time Data Visualization & Tabular Reports</i>
+  <img src="assets/graph.png" alt="Performance Graph" width="600" />
 </p>
 
 ---
 
-## 🛠 Technology Stack
+## 🚀 Future Roadmap
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" />
-  <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" />
-  <img src="https://img.shields.io/badge/Matplotlib-ffffff?style=for-the-badge&logo=matplotlib&logoColor=black" />
-  <img src="https://img.shields.io/badge/OS-Module-black?style=for-the-badge&logo=linux" />
-</p>
+- [x] Core CRUD Operations
+- [x] File Persistence (Text-based)
+- [x] Statistical Analytics Integration
+- [x] Basic Data Visualization
+- [ ] **Phase 2:** SQLite/PostgreSQL Database Integration
+- [ ] **Phase 3:** Multi-user Authentication System
+- [ ] **Phase 4:** Flask/FastAPI Web Dashboard
+- [ ] **Phase 5:** Automated Report Export (PDF/CSV)
 
 ---
 
-## 📈 Project Metrics
+## 💻 Development Workflow
 
-| Metric | Progress | Status |
-| :--- | :--- | :--- |
-| **Completion** | ![95%](https://geps.dev/progress/95) | `Ready` |
-| **Testing** | ![80%](https://geps.dev/progress/80) | `Stable` |
-| **Documentation** | ![100%](https://geps.dev/progress/100) | `Complete` |
-| **Performance** | ![90%](https://geps.dev/progress/90) | `Optimized` |
+### Technical Implementation Details
+1. **Data Structures:** Uses a list of dictionaries for in-memory data management during sessions.
+2. **Sorting Logic:** Implements Python's Timsort (via `sorted()`) with lambda keys for ranking students by GPA/Average.
+3. **Analytics Engine:** 
+   - **NumPy:** Leverages vectorized operations to calculate class-wide metrics.
+   - **Pandas:** Converts raw dictionaries into DataFrames for structured reporting.
+4. **Persistence:** Implements a comma-separated text storage system with exception handling for file availability and permission errors.
+
+### Educational Value
+This project demonstrates proficiency in:
+- Modular function design
+- Error and Exception handling
+- File I/O operations
+- Data manipulation with external libraries
+- Operating system interactions (OS module)
+
+---
+
+## 🛠 Setup & Requirements
+
+### System Requirements
+- **OS:** Windows 10/11, macOS, or Linux.
+- **Python:** 3.8 or higher.
+- **Memory:** 512MB RAM (Minimum).
+- **Disk:** 10MB available space.
+
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/subhamsje/SMART-CAMPUS-INFORMATION-SYSTEM.git
+
+# Initialize environment
+cd SMART-CAMPUS-INFORMATION-SYSTEM
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run application
+python main.py
+```
+
+### Troubleshooting
+- **ModuleNotFoundError:** Ensure the virtual environment is active and `pip install` was successful.
+- **Matplotlib Backend:** If running on a headless server (WSL without X-server), Matplotlib may require a non-interactive backend (e.g., `Agg`).
+- **File Permissions:** Ensure the application has write access to the directory for `student_records.txt`.
 
 ---
 
 ## 📂 Repository Structure
 
-<details>
-<summary><b>Click to expand file tree</b></summary>
-
 ```text
-Smart-Campus-System/
-├── main.py               # Core application entry point
-├── student_records.txt   # Persistent storage for student data
-├── requirements.txt      # Project dependencies
+.
+├── main.py               # Application entry point & CLI logic
+├── requirements.txt      # List of Python dependencies
 ├── .gitignore            # Git exclusion rules
-├── assets/               # Visual assets and screenshots
-│   ├── dashboard.png
-│   └── analytics.png
-└── README.md             # Elite Documentation
-```
-</details>
-
----
-
-## ⚙️ Installation & Setup
-
-### Prerequisites
-- Python 3.8 or higher
-- Pip (Python package manager)
-
-### Quick Start
-```bash
-# 1. Clone the repository
-git clone https://github.com/subhamsje/SMART-CAMPUS-INFORMATION-SYSTEM.git
-
-# 2. Enter the directory
-cd SMART-CAMPUS-INFORMATION-SYSTEM
-
-# 3. Create virtual environment
-python -m venv venv
-
-# 4. Activate environment
-# On Windows:
-venv\Scripts\activate
-# On macOS/Linux:
-source venv/bin/activate
-
-# 5. Install dependencies
-pip install -r requirements.txt
-
-# 6. Launch the application
-python main.py
+├── assets/               # Screenshots, GIFs, and media
+│   └── .gitkeep
+└── README.md             # Project documentation
 ```
 
 ---
 
-## 🤝 Contributing
+## 📈 GitHub Stats
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=subhamsje&show_icons=true&theme=transparent" alt="GitHub Stats" width="400" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=subhamsje&layout=compact&theme=transparent" alt="Top Languages" width="300" />
+</p>
 
 ---
 
-<p align="center">
-  <img src="https://capsule-render.vercel.app/render?type=soft&color=gradient&height=100&section=footer" width="100%" />
-</p>
+## 🤝 Contribution & License
+
+Contributions are welcome! If you'd like to improve the system or add new features, please fork the repository and create a pull request.
+
+**License:** Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="center">
-  <b>Built with ❤️ by Subham</b><br>
-  <i>Empowering Campus Management through Intelligent Software</i>
-</p>
-
-<p align="center">
-  <a href="https://github.com/subhamsje"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>
-  <a href="https://www.linkedin.com/in/subhamsje"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+  <b>Developed by <a href="https://github.com/subhamsje">Subham</a></b><br>
+  <a href="https://www.linkedin.com/in/subhamsje">LinkedIn</a> • <a href="https://github.com/subhamsje/SMART-CAMPUS-INFORMATION-SYSTEM">Repository</a>
 </p>
 
 <p align="center">
